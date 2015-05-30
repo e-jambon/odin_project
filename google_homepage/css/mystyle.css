@@ -1,0 +1,205 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.navbar {
+
+float:right;
+margin-right: 0px;
+
+
+
+}
+
+
+
+.navbar ul {
+ list-style-type: none;
+margin: 0;
+padding: 0;
+
+
+
+}
+
+.navbar div  {
+ display: inline-block;
+ padding:0 10px;
+
+}
+
+div a {
+color:#404040;
+text-decoration: none;
+font-size:17px;
+font-family: arial, sans-serif;
+
+}
+
+
+
+.mainBody {
+
+	
+	margin: auto;
+	clear:both;
+}
+
+.mainBody img {
+padding-top: 112px;
+width:350px; 
+height:125px;
+}
+
+.mainBody div:first-child {
+	height:231px;
+	margin-top:20px;
+}
+
+.mainBody div:last-child {
+height:102px;
+
+}
+
+#textBox {
+width:720px;
+height:30px;
+display: block;
+margin-top: 35px;
+}
+
+#button {
+display: inline-block;
+margin-top: 20px;
+height:38px;
+font-weight: bold;
+color: #444;
+background: #f2f2f2;
+font-size: 15px;
+font-family: arial, sans-serif;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 3px;
+margin-left: 20px;
+
+}
+
+.lucky {
+	width:150px;
+	
+}
+
+.search {
+	width:130px;
+
+
+
+}
+form div {
+margin: auto;
+
+}
+.search:hover, .lucky:hover
+{
+box-shadow: 0px 1px 0px #999
+
+}
+
+.textLinks div {
+
+margin-top: 12px;
+display: inline-block;
+
+
+}
+
+.imageLinks img:hover {
+
+}
+
+.imageLinks div:last-child {
+	position: relative;
+	top: 6px;
+}
+
+.imageLinks div {
+position: relative;
+
+
+}
+
+.navbar navPosition {
+position: absolute;
+}
+
+.imageLinks {
+
+	width:285px;
+	height: 80px;
+	float: right;
+}
+
+.imageLinks div:nth-child(1), .imageLinks div:nth-child(2), .imageLinks div:nth-child(3)
+{
+
+	margin-top: 13px;
+}
+.textLinks {
+	float: left;
+	margin-top: 20px;
+
+}
+
+
+a:hover {
+ text-decoration: underline;
+
+}
+html, body {
+	width: 100%;
+}
+
+.footer {
+width: 100%;
+height: 60px;
+clear: both;
+position: fixed;
+bottom: 0px;
+left: 0px;
+margin-top: 70px;
+padding: 0px;
+color: #444;
+background-color: #f2f2f2;
+
+
+}
+
+#leftLinks {
+float:left;
+
+
+}
+
+#rightLinks {
+float: right;
+
+
+}
+
+.footer div {
+ margin-top: 20px;
+
+}
+
+.footer a {
+	margin-left: 20px;
+	margin-right: 20px;
+
+	color: rgb(102,​ 102,​ 102);
+	
+}
+
+#textBox {
+font-size:20px;
+
+}
