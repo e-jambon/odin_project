@@ -1,6 +1,7 @@
 ## First step
-  * Create an empty webpage
-  * add jquery to project
+  * ~~create an empty webpage~~
+  * ~~add jquery to project~~
+  * ~add stylesheet~~
   * load jquery in the page
   * Create an object that draws a square.
   * Create an object that draws a line of square
@@ -8,3 +9,4 @@
   * refactor
   * Give each square an hover over event
   * refactor
+  *
