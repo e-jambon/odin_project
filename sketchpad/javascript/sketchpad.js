@@ -14,15 +14,13 @@ $(document).ready(function() {
 
 
 	function verifyInputs(numRows, numCols){
-		//yet extremely basic
-		return  (numRows instanceof Number ) && ( numCols instanceof Number) ;
+		return true;
 
 	}
 
 	//returns an array of columns. 
 	function createGrid (numRows, numCols ){
-		(verifyInputs(numRows, numCols) ) || alert("verify your row and col") ;
-
+		alert(verifyInputs(numRows, numCols));
 		numCols = typeof numCols !== 'undefined' ? numCols : 30;
 		numRows = typeof numRows !== 'undefined' ? numRows : 30;
 		while (numRows--){ drawRow(numCols) ;}
