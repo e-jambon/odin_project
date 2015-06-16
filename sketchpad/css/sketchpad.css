@@ -71,7 +71,13 @@ div {
 }
 
 .grid { 
- background-color: white;
+ background-color: grey;
+ float:left;
+ display:block;
+ float:left;
+ border:solid 1px darkgrey;
+ padding: 0px;
+ margin: 0px;
 } 
 
 .footer { 

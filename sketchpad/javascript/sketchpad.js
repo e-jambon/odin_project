@@ -8,30 +8,33 @@ $(document).ready(function() {
 		columns= 30,
 		rows=30;
 
-	// create an array from start to end 
-	// usage :  row ( 0, 4) will create [0,1,2,3,4] 
-	function row (start, end) {
-		var arr = [], i = end-start+1;
-		while (i--) { arr[i]=  end-- ;}
-		return arr ;
-	}	
+	function drawcell(el){
+		el.append('<div class="cell" style="width:10px ; height:10px ; bakground-color: black ; display:inline-block;"></div>');
+	}
+
+
 	function verifyInputs(numRows, numCols){
-		return true;
+		//yet extremely basic
+		return  (numRows instanceof Number ) && ( numCols instanceof Number) ;
+
 	}
 
 	//returns an array of columns. 
 	function createGrid (numRows, numCols ){
+		(verifyInputs(numRows, numCols) ) || alert("verify your row and col") ;
+
 		numCols = typeof numCols !== 'undefined' ? numCols : 30;
 		numRows = typeof numRows !== 'undefined' ? numRows : 30;
-		var x = row(0,numCols-1), 
-		    y = numRows  , 
-		    grid = [];
-		while (y--){ grid[y]= x ;}
-		console.log(grid);
-
+		while (numRows--){ drawRow(numCols) ;}
 	}
 
-		
+	function drawRow(numCols){
+		$("#grid").append('<div class="row">');
+		var index = numCols+1;
+		while (numCols--) {drawcell($("#grid"));}
+	   	$("#grid").append('</div>');
+		return true;
+	}	
 
     $('.navbar').on('mouseenter','li',function(){
     	$(this).css({'background-color' : 'blue'});
@@ -42,9 +45,14 @@ $(document).ready(function() {
     }); 
 
     $('#newGrid').on('click', 'a', function(event){
+    	$("#grid").empty();
 		createGrid(3,6);
-		console.log(grid);
     }); 
+
+    createGrid(5,15);
+
+
+
 });
 
 
