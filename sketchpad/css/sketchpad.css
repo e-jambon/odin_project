@@ -1,4 +1,107 @@
-$*{
+html { 
   margin: 0;
   padding: 0;
+} 
+
+body { 
+    background-color: white;
+    margin-left: 10px;
+} 
+
+
+/*******************************************************************
+LAYOUT
+*******************************************************************/
+
+/*
+div { 
+    
+} 
+*/
+
+
+
+.header { 
+    font-family: fantasy;
+    text-align: left;
+
+} 
+
+.header h1 {
+    text-align: center;
+
 }
+
+.navbar { 
+    padding: 10px;
+    background-color : black;
+    border-bottom-left-radius: 3px ;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 3px;
+    color: whitesmoke;
+} 
+
+.navbar li {
+    display: inline;
+    padding: 5px;
+    border: 3px solid;
+
+}
+.content {
+    background-color: aliceblue;
+    border-width: 3px;
+    border-color: blue;
+    border-bottom-style: solid;    
+    display: inline-block;    
+}
+
+.content p {
+    margin-left: 15px;
+    font-family: monospace ;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+#grid-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.grid { 
+ background-color: white;
+} 
+
+.footer { 
+    padding-bottom: 1px;
+    padding-top: 1px;
+    background-color: black;
+    display: block ;
+    float: none;
+    color: whitesmoke;
+} 
+.footer a {
+    text-decoration: none;
+    color: whitesmoke;
+    color: whitesmoke;
+}
+
+.hightlight  {
+    background-color: #66ffcc;
+    color: #66ffcc;
+}
+
+li a {
+    color: whitesmoke;
+    font-family: monospace;
+    text-decoration: none;
+}
+
+#dialog-form { display: block;}
+label, input { display: inline ; }
+input.text { margin-bottom:12px; width:95%; padding: .4em; color: black; }
+fieldset { padding:0; border:0; margin-top:25px;  display: block; width: 300px;}
+
+.ui-dialog .ui-state-error { padding: .3em; }
+.validateTips { border: 1px solid transparent; padding: 0.3em; }
