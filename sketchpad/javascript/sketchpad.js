@@ -3,18 +3,14 @@ $(document).ready(function() {
 	var grid = [];
 
 
-	var dialog, 
-		form,
-		columns= 30,
-		rows=30,
-		cellWidth=0,
-		cellHeight=0;
+	var columns= 30,
+		rows=30;
 
 
 	function cellReSize( numRows, numCols) {
-		cellWidth = 960 / numCols;
-		cellHeight = 960 / numRows;
-		return   cellHeight>cellWidth ? cellHeight : cellWidth;
+		var cellWidth = 960 / numCols;
+		var cellHeight = 960 / numRows;
+		return   cellHeight<cellWidth ? cellHeight : cellWidth;
 	}
 
 	function drawcell(el){
@@ -29,10 +25,6 @@ $(document).ready(function() {
 		return true;
 	}	
 
-	function verifyInputs(numRows, numCols){
-		return true;
-
-	}
 
 	//returns an array of columns. 
 	function createGrid (numRows, numCols ){
@@ -41,8 +33,9 @@ $(document).ready(function() {
 		var cellReSized = cellReSize(numRows, numCols); 
 		console.log("cellResised = " + cellReSized);
 		while (numRows--){ drawRow(numCols) ;}
-		$('.cell').height(cellReSized)
-		$('.cell').width(cellReSized);
+		$('.cell')
+				.height(cellReSized)
+		      	.width(cellReSized);
 
 		$('.cell').on('mouseenter', function(event){
     		$(this).css({'background-color' : 'blue'})
@@ -61,9 +54,18 @@ $(document).ready(function() {
     $('#newGrid').on('click', 'a', function(event){
     	event.preventDefault();
     	$("#grid").empty();
-		createGrid(90,90);
+    	var r  = parseInt( $('#rows').val() , 10);
+    	var c  = parseInt( $('#columns').val() , 10);
+		createGrid(r,c);
     }); 
 
+    $('#clearGrid').on('click','a',function(event){
+    	event.preventDefault();
+    	$("#grid").empty();
+    });
+
+// No error management done here. Pure production disaster, but since I know no 
+// unit testing tool yet, I see no point in playing with errors management yet.
 
 
 
