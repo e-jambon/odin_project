@@ -1,32 +1,19 @@
+
+
+
+
 html { 
-  margin: 0;
-  padding: 0;
+    padding:0px;
+    margin:0px 0px 0px 0px;
+    overflow:hidden;
 } 
 
 body { 
     background-color: white;
     margin-left: 10px;
+    margin-right: 10px;
 } 
 
-
-/*******************************************************************
-LAYOUT
-*******************************************************************/
-
-/*
-div { 
-    
-} 
-*/
-html {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: white;
-    margin-left: 10px;
-}
 
 /*******************************************************************
 LAYOUT
@@ -41,9 +28,13 @@ div {
 .header {
     font-family: fantasy;
     text-align: left;
+    font-size: 12px;
 }
 
-.header h1 { text-align: center }
+.header h1 { 
+    text-align: center;
+    font-size: 18px;
+ }
 
 .navbar {
     background-color : black;
@@ -52,7 +43,14 @@ div {
     border-top-left-radius: 8px;
     border-top-right-radius: 3px;
     color: whitesmoke;
-    padding: 10px;
+    display:inline-block;
+    
+    width: 100%;
+}
+
+.navbar ul {
+    vertical-align: middle;
+    display:inline-block;
 }
 
 .navbar li {
@@ -61,42 +59,68 @@ div {
     padding: 5px;
 }
 
-.content {
-    background-color: aliceblue;
-    border-width: 3px;
-    border-color: blue;
-    border-bottom-style: solid;
-    display: inline-block;
-}
-
-.content p {
-    margin-left: 15px;
+.navbar li a {
+    color: whitesmoke;
     font-family: monospace;
-    font-size: 15px;
-    font-weight: 400;
+    text-decoration: none;
 }
 
-#grid-title {
-    border-bottom: solid blue 1px;
-    margin-left: 5px;
-    font-size: 18px;
-    font-weight: 700;
+.navbar .separator {
+    width:30px;
+    display:inline-block;
+}
+
+.navbar form {
+    border: 0;
+    padding: 0;
+    display:inline-block;
+}
+
+.navbar input { 
+    display: inline;
+    height: 20px;
+    text-align: right;
+
+}
+
+input.text {
+    color: black;
+    margin-bottom: 12px;
+    width: 95%;
+    padding: .4em;
 }
 
 .grid {
-    background-color: grey;
-    border: solid 1px darkgrey;
-    display: block;
-    float: left;
     margin: 0px;
     padding: 0px;
+    width:960px;
+    height: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 0;
+    background-color: grey;
+
 }
+.row {
+    padding:0px;
+    margin:0px 0px 0px 0px;
+    line-height: 0;
+}
+
+.cell {
+    padding:0px;
+    margin:0px 0px 0px 0px;
+    line-height: 0;
+    display:inline-block;
+    background-color: orange;
+    width: 10px;
+    height: 10px;
+
+ }
 
 .footer {
     background-color: black;
     color: whitesmoke;
-    display: block;
-    float: none;
     padding-bottom: 1px;
     padding-top: 1px;
 }
@@ -107,148 +131,7 @@ div {
 }
 
 .hightlight {
-    background-color: #66ffcc;
-    color: #66ffcc;
+    background-color: green;
+    color: #black;
 }
 
-li a {
-    color: whitesmoke;
-    font-family: monospace;
-    text-decoration: none;
-}
-
-#dialog-form { border-top: solid blue 1px }
-
-label,
-input { display: inline-block }
-
-input.text {
-    color: black;
-    display: inline-block;
-    margin-bottom: 12px;
-    width: 95%;
-    padding: .4em;
-}
-
-fieldset {
-    border: 0;
-    display: block;
-    margin-top: 25px;
-    padding: 0;
-    width: 150px;
-}
-
-.ui-dialog .ui-state-error { padding: .3em }
-
-.validateTips {
-    border: 1px solid transparent;
-    padding: 0.3em;
-}
-
-
-.header { 
-    font-family: fantasy;
-    text-align: left;
-
-} 
-
-.header h1 {
-    text-align: center;
-
-}
-
-.navbar { 
-    background-color : black;
-    border-bottom-left-radius: 3px ;
-    border-bottom-right-radius: 8px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 3px;
-    color: whitesmoke;
-    padding: 10px;
-} 
-
-.navbar li {
-    border: 3px solid;
-    display: inline;
-    padding: 5px;
-
-}
-.content {
-    background-color: aliceblue;
-    border-width: 3px;
-    border-color: blue;
-    border-bottom-style: solid;    
-    display: inline-block;    
-}
-
-.content p {
-    margin-left: 15px;
-    font-family: monospace ;
-    font-size: 15px;
-    font-weight: 400;
-}
-
-#grid-title {
-    border-bottom: solid blue 1px;
-    margin-left: 5px;
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.grid { 
- background-color: grey;
- border:solid 1px darkgrey;
- display:block;
- float:left;
- margin: 0px;
- padding: 0px;
-} 
-
-.footer { 
-    background-color: black;
-    color: whitesmoke;
-    display: block ;
-    float: none;
-    padding-bottom: 1px;
-    padding-top: 1px;
-} 
-.footer a {
-    color: whitesmoke;
-    text-decoration: none;
-}
-
-.hightlight  {
-    background-color: #66ffcc;
-    color: #66ffcc;
-}
-
-li a {
-    color: whitesmoke;
-    font-family: monospace;
-    text-decoration: none;
-}
-
-#dialog-form { border-top: solid blue 1px; }
-label, input { display: inline-block ;  }
-input.text { 
-    color: black; 
-    display:inline-block;
-    margin-bottom:12px; width:95%;
-    padding: .4em; 
-}
-fieldset { 
-    border:0; 
-    display: block; 
-    margin-top:25px;  
-    padding:0; 
-    width: 150px;
-}
-
-.ui-dialog .ui-state-error { 
-    padding: .3em; 
-}
-
-.validateTips { 
-    border: 1px solid transparent;
-    padding: 0.3em; 
-}

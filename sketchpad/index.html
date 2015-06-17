@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="css/sketchpad.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <title>Sketchpad by e-jambon</title>
   </head>
   <body>
@@ -11,32 +10,24 @@
       <h1>e-jambon : odin-project /jquery sketchpad</h1>
       <p><b>Instructions : </b>Move over the grid to draw stuff. You can hit the "New" button at anytime to start a new grid. Hit the "Clear grid" button to clear the current grid.</p>
     </div>
+   
+
     <div class="navbar">
+      <span class="separator"></span>
+      <form>
+        <label for="columns">Columns : </label>
+        <input type="text" name="columns" id="columns" value="30">
+        <span class="separator"></span>
+        <label for="rows">Rows : </label>
+        <input type="text" name="rows" id="rows" value="30" >
+      </form>     
       <ul>
         <li id="newGrid"><a href="#">New grid</a></li>
+        <span class="separator"></span>
         <li id="#clearGrid"><a href="#">Clear grid</a></li>
-      </ul>      
+      </ul> 
     </div>
-    <div class="content">
-      <span class="grid-description">
-          <p id="grid-title">Grid description</p>
-          <p id="grid-rows" data-grid-rows ="30">rows : 20</p>
-          <p id="grid-columns" data-grid-columns="15">columns :15</p>
-          <p id="grid-fill-color" data-grid-fill-color="blue">grid-fill-color</p>
-      </span>
-      <div id="dialog-form" title="Create a new grid">
-        <p class="validateTips">Both columns fields are required.</p>
-        <form>
-          <fieldset>
-            <label for="columns">Columns</label>
-            <input type="text" name="columns" id="columns" value="30" class="text ui-widget-content ui-corner-all">
-            <label for="rows">Rows</label>
-            <input type="text" name="rows" id="rows" value="30" class="text ui-widget-content ui-corner-all">
-            <input type="submit" tabindex="-1">
-          </fieldset>
-          </form>
-      </div> <!-- end of dialog form div -->
-    </div>
+    
 
     <div class="grid">
       <span id="grid">
@@ -45,7 +36,6 @@
     </div>
     
     <div class="footer">
-
       <p>Créé dans le cadre odin-project. Code disponible sur <a href="https://github.com/e-jambon/odin_project"> github</a></p>
     </div>
 

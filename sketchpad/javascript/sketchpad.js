@@ -6,24 +6,19 @@ $(document).ready(function() {
 	var dialog, 
 		form,
 		columns= 30,
-		rows=30;
+		rows=30,
+		cellWidth=0,
+		cellHeight=0;
+
+
+	function cellReSize( numRows, numCols) {
+		cellWidth = 960 / numCols;
+		cellHeight = 960 / numRows;
+		return   cellHeight>cellWidth ? cellHeight : cellWidth;
+	}
 
 	function drawcell(el){
-		el.append('<div class="cell" style="width:10px ; height:10px ; bakground-color: black ; display:inline-block;"></div>');
-	}
-
-
-	function verifyInputs(numRows, numCols){
-		return true;
-
-	}
-
-	//returns an array of columns. 
-	function createGrid (numRows, numCols ){
-		alert(verifyInputs(numRows, numCols));
-		numCols = typeof numCols !== 'undefined' ? numCols : 30;
-		numRows = typeof numRows !== 'undefined' ? numRows : 30;
-		while (numRows--){ drawRow(numCols) ;}
+		el.append("<div class='cell'></div>");
 	}
 
 	function drawRow(numCols){
@@ -34,6 +29,27 @@ $(document).ready(function() {
 		return true;
 	}	
 
+	function verifyInputs(numRows, numCols){
+		return true;
+
+	}
+
+	//returns an array of columns. 
+	function createGrid (numRows, numCols ){
+		numCols = typeof numCols !== 'undefined' ? numCols : 30;
+		numRows = typeof numRows !== 'undefined' ? numRows : 30;
+		var cellReSized = cellReSize(numRows, numCols); 
+		console.log("cellResised = " + cellReSized);
+		while (numRows--){ drawRow(numCols) ;}
+		$('.cell').height(cellReSized)
+		$('.cell').width(cellReSized);
+
+		$('.cell').on('mouseenter', function(event){
+    		$(this).css({'background-color' : 'blue'})
+    	});
+
+	}
+
     $('.navbar').on('mouseenter','li',function(){
     	$(this).css({'background-color' : 'blue'});
     }); 
@@ -43,11 +59,11 @@ $(document).ready(function() {
     }); 
 
     $('#newGrid').on('click', 'a', function(event){
+    	event.preventDefault();
     	$("#grid").empty();
-		createGrid(3,6);
+		createGrid(90,90);
     }); 
 
-    createGrid(5,15);
 
 
 
