@@ -6,9 +6,10 @@ class Link
 	
 
 	def initialize (options = {})
-	    @title = options[:title] || "New Link"
-	    @description= options[:description] || "Empty description"
-	    @url =  options[:url] || "" 
+		options = {title: "New Link", description: "Empty description", url: ""}.merge(options)
+	    @title = options[:title]
+	    @description= options[:description]
+	    @url =  options[:url]
 	end
 
 
@@ -21,24 +22,23 @@ class Link
 	def get_request_head_infos(url_entry)
 		infos = Hash.new
 	 	uri = URI.parse(url_entry)
-	 	req1 = Net::HTTP.new(uri.host, uri.port)
-	 	req1.use_ssl = (uri.scheme == 'https')
-	 	path = uri.path unless uri.path.empty?
-	 	path = path || '/'
-	 	res = req1.request_head(path)
-	 	infos[:code]  = res.code
-	 	infos[:is_url_redirection] = res.kind_of?Net::HTTPRedirection
-	 	infos[:redirection_url	] = res['location'] || url_entry
+	 	request = Net::HTTP.new(uri.host, uri.port)
+	 	request.use_ssl = (uri.scheme == 'https')
+	 	path = (uri.path unless uri.path.empty? ) || '/'
+	 	response = request.request_head(path)
+	 	infos= { code: response.code, 
+	 			is_url_redirection: (response.kind_of?Net::HTTPRedirection) , 
+	 			redirection_url: (response['location'] || url_entry) }
 		return infos
 	end
 
 
-	 def valid_url?(option ={})
+	 def valid_url?(options ={})
 	 	begin
-	 		option = {url_entry: @url, is_callback: false }.merge(option)
+	 		options = {url_entry: @url, is_callback: false }.merge(options)
 		 	infos = Hash.new
-		 	infos = get_request_head_infos(option[:url_entry])
-	 		is_redirection = option[:is_callback] || infos[:is_url_redirection]
+		 	infos = get_request_head_infos(options[:url_entry])
+	 		is_redirection = options[:is_callback] || infos[:is_url_redirection]
 	 		if (is_redirection && infos[:is_url_redirection])   
 	 				valid_url?({url_entry: infos[:redirection_url], is_callback: true})
 	 		else
