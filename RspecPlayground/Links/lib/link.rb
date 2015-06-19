@@ -33,14 +33,14 @@ class Link
 	end
 
 
-	 def is_url_valid?(option ={})
+	 def valid_url?(option ={})
 	 	begin
 	 		option = {url_entry: @url, is_callback: false }.merge(option)
 		 	infos = Hash.new
 		 	infos = get_request_head_infos(option[:url_entry])
 	 		is_redirection = option[:is_callback] || infos[:is_url_redirection]
 	 		if (is_redirection && infos[:is_url_redirection])   
-	 				is_url_valid?({url_entry: infos[:redirection_url], is_callback: true})
+	 				valid_url?({url_entry: infos[:redirection_url], is_callback: true})
 	 		else
 	 				return ! %W(4 5).include?(infos[:code][0]) # Not from 4xx or 5xx families, should therefore return true
 	 		end
