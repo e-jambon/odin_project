@@ -34,13 +34,20 @@ class Link
 	end
 
 
-	 def valid_url?(options ={})
+	# Due to redirections, valid_url is recursive.
+	# As long as it sees a redirection, it will follow untill 
+	# it either encounters a responsive adress, or encounters an error.
+	# FIXME : 
+	# There is no limitation to this behavior. 
+	# Therefore, if A --> 302 to B --> 302 to C --> 302 to A... infinite loop.
+	def valid_url?(options ={})
 	 	begin
 	 		options = {url_entry: @url, is_callback: false }.merge(options)
 		 	infos = Hash.new
 		 	infos = self.class.get_request_head_infos(options[:url_entry])
 	 		is_redirection = options[:is_callback] || infos[:is_url_redirection]
-	 		if (is_redirection && infos[:is_url_redirection])   
+	 		if (is_redirection && infos[:is_url_redirection])
+
 	 				valid_url?({url_entry: infos[:redirection_url], is_callback: true})
 	 		else
 	 				return ! %W(4 5).include?(infos[:code][0]) # Not from 4xx or 5xx families, should therefore return true
@@ -48,5 +55,5 @@ class Link
 	 	rescue # All errors are catched here. Those will return false. We do not need to know more thus far, link is not valid.
 	 	  false #false if can't find the server
 	 	end
-	 end
+	end
 end
