@@ -12,6 +12,7 @@ class Link
 	    @url =  options[:url]
 	end
 
+	
 
 	# Request the header and grab infos in a hash :
 	# :code = HHTP response status code
@@ -40,6 +41,7 @@ class Link
 	# FIXME : 
 	# There is no limitation to this behavior. 
 	# Therefore, if A --> 302 to B --> 302 to C --> 302 to A... infinite loop.
+	# I believe this to be very unlikely.
 	def valid_url?(options ={})
 	 	begin
 	 		options = {url_entry: @url, is_callback: false }.merge(options)
