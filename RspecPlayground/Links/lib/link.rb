@@ -1,5 +1,5 @@
 require 'net/http'
-
+require 'pry'
 
 class Link
 	attr_accessor  :url, :description, :title
@@ -19,7 +19,7 @@ class Link
 	# :redirection_url either the url_entry, in case there is no redirection, 
 	#  		or the url to wich the original site is pointing to.
 	#       This way, in the end, we get out with a valid url to test.
-	def get_request_head_infos(url_entry)
+	def self.get_request_head_infos(url_entry)
 		infos = Hash.new
 	 	uri = URI.parse(url_entry)
 	 	request = Net::HTTP.new(uri.host, uri.port)
@@ -28,7 +28,8 @@ class Link
 	 	response = request.request_head(path)
 	 	infos= { code: response.code, 
 	 			is_url_redirection: (response.kind_of?Net::HTTPRedirection) , 
-	 			redirection_url: (response['location'] || url_entry) }
+	 			redirection_url: (response['location'] || url_entry) 
+	 		}
 		return infos
 	end
 
@@ -37,7 +38,7 @@ class Link
 	 	begin
 	 		options = {url_entry: @url, is_callback: false }.merge(options)
 		 	infos = Hash.new
-		 	infos = get_request_head_infos(options[:url_entry])
+		 	infos = self.class.get_request_head_infos(options[:url_entry])
 	 		is_redirection = options[:is_callback] || infos[:is_url_redirection]
 	 		if (is_redirection && infos[:is_url_redirection])   
 	 				valid_url?({url_entry: infos[:redirection_url], is_callback: true})
